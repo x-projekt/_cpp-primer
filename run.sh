@@ -7,7 +7,7 @@ else
 fi
 
 out_file="a.exe"
-g++ -std=c++11 -o "${out_file}" "${in_file}"
+g++ -std=c++11 -o "${out_file}" "src/${in_file}"
 if [ "${?}" = "0" ]; then
   ./"${out_file}"
 else
