@@ -6,3 +6,12 @@ project.tasks.named("wrapper") {
     gradleVersion = "8.4"
     distributionType = Wrapper.DistributionType.ALL
 }
+
+project.tasks.register("compileTex") {
+    group = "Custom"
+    description = "Compile LaTeX files"
+
+    doLast {
+        println "Compiling latex files..."
+    }
+}
