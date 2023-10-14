@@ -1,0 +1,84 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{authblk}
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+
+\usepackage[backend=biber, style=ieee, sorting=ynt]{biblatex}
+\usepackage{url}
+\addbibresource{citations.bib}
+
+\usepackage[parfill]{parskip}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+%\graphicspath{{..\img} {.\img}}
+
+%\newcommand\theequation{eq.\arabic{equation}}
+
+\newcounter{txtrefcounter}
+\makeatletter
+\newcommand*{\labeltext}[2]{%
+  \refstepcounter{txtrefcounter}%increment text-reference counter
+  \edef\@currentlabel{phr.\,\arabic{txtrefcounter}}% Set target label
+  \phantomsection% Correct hyper reference link
+  \textcolor{txt-red}{#1}~[\textcolor{txt-blue}{phr.\,\arabic{txtrefcounter}}] \label{#2}% Print and store label
+}
+\makeatother
+
+\definecolor{bg-black}{RGB}{42, 42, 42}
+\definecolor{bg-white}{RGB}{255, 255, 255}
+\definecolor{txt-blue}{RGB}{3, 169, 244}
+\definecolor{txt-orange}{RGB}{255, 171, 0}
+\definecolor{txt-yellow}{RGB}{255, 221, 75}
+\definecolor{txt-red}{RGB}{229, 57 ,53}
+
+\tcbset{
+	width=\textwidth,
+	colback=bg-white,
+	colframe=bg-black,
+	coltitle=txt-yellow,
+	fonttitle=\sffamily,
+	arc=0.1mm,
+	left=1mm
+}
+
+\hypersetup{pdfinfo={
+	Title={--},  % unrelated to the title on the first-page; title of the morsel
+	Subject={--},  % unrelated to abstract or similar document content; abstract for the website
+	Author={Harsha Vardhan}, % unrelated to the \author{} commands' content
+	% CreationDate={}, % date format is D:YYYYMMDDHHmmSSOHH'mm' or D:YYYYMMDD
+	% ModDate={}, % date format is D:YYYYMMDDHHmmSSOHH'mm' or D:YYYYMMDD
+	CreatedOn={--}, % custom metadata-entry; format: Month Day, Year
+	LastUpdatedOn={\today}, % custom metadata-entry
+	Keywords={--} % separated by " | ", i.e. pipe symbol
+}}
+
+\begin{document}
+\title{... content-source ...}
+\author{Harsha Vardhan}
+\date{Last Updated: \today}
+
+\maketitle
+\bigskip
+
+\begin{tcolorbox}[title={some-title-for-box}]
+... the thing or statement that caught your imagination ...
+\end{tcolorbox}
+
+... rest of the document ...
+
+\end{document}
