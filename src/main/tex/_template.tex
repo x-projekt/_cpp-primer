@@ -32,10 +32,10 @@
 \newcounter{txtrefcounter}
 \makeatletter
 \newcommand*{\labeltext}[2]{%
-  \refstepcounter{txtrefcounter}%increment text-reference counter
-  \edef\@currentlabel{phr.\,\arabic{txtrefcounter}}% Set target label
-  \phantomsection% Correct hyper reference link
-  \textcolor{txt-red}{#1}~[\textcolor{txt-blue}{phr.\,\arabic{txtrefcounter}}] \label{#2}% Print and store label
+	\refstepcounter{txtrefcounter}%increment text-reference counter
+	\edef\@currentlabel{phr.\,\arabic{txtrefcounter}}% Set target label
+	\phantomsection% Correct hyper reference link
+	\textcolor{txt-red}{#1}~[\textcolor{txt-blue}{phr.\,\arabic{txtrefcounter}}] \label{#2}% Print and store label
 }
 \makeatother
 
@@ -68,17 +68,17 @@
 }}
 
 \begin{document}
-\title{... content-source ...}
-\author{Harsha Vardhan}
-\date{Last Updated: \today}
+	\title{... content-source ...}
+	\author{Harsha Vardhan}
+	\date{Last Updated: \today}
+	
+	\maketitle
+	\bigskip
 
-\maketitle
-\bigskip
+	\begin{tcolorbox}[title={some-title-for-box}]
+		... the thing or statement that caught your imagination ...
+	\end{tcolorbox}
 
-\begin{tcolorbox}[title={some-title-for-box}]
-... the thing or statement that caught your imagination ...
-\end{tcolorbox}
-
-... rest of the document ...
+	... rest of the document ...
 
 \end{document}
