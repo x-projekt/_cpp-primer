@@ -2,6 +2,9 @@ plugins {
     id 'cpp-library'
 }
 
+project.version = "1.0.0"
+project.description = "Complements C++ Primer"
+
 project.tasks.named("wrapper") {
     gradleVersion = "8.4"
     distributionType = Wrapper.DistributionType.ALL
