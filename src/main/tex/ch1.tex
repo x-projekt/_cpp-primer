@@ -20,6 +20,7 @@
 \usepackage[backend=biber, style=ieee, sorting=ynt]{biblatex}
 \usepackage{url}
 \addbibresource{citations.bib}
+\addbibresource{ch1.bib}
 
 \usepackage[parfill]{parskip}
 \usepackage{enumitem}
@@ -32,10 +33,10 @@
 \newcounter{txtrefcounter}
 \makeatletter
 \newcommand*{\labeltext}[2]{%
-  \refstepcounter{txtrefcounter}%increment text-reference counter
-  \edef\@currentlabel{phr.\,\arabic{txtrefcounter}}% Set target label
-  \phantomsection% Correct hyper reference link
-  \textcolor{txt-red}{#1}~[\textcolor{txt-blue}{phr.\,\arabic{txtrefcounter}}] \label{#2}% Print and store label
+    \refstepcounter{txtrefcounter}%increment text-reference counter
+    \edef\@currentlabel{phr.\,\arabic{txtrefcounter}}% Set target label
+    \phantomsection% Correct hyper reference link
+    \textcolor{txt-red}{#1}~[\textcolor{txt-blue}{phr.\,\arabic{txtrefcounter}}] \label{#2}% Print and store label
 }
 \makeatother
 
@@ -68,17 +69,57 @@
 }}
 
 \begin{document}
-    \title{Chapter 1: Getting Started}
+    \title{Chapter 1: Getting Started~\cite{cpp-primer}}
     \author{Harsha Vardhan}
     \date{Last Updated: \today}
 
     \maketitle
     \bigskip
 
-    \begin{tcolorbox}[title={some-title-for-box}]
-        ... the thing or statement that caught your imagination ...
+    \begin{tcolorbox}[title={Exercise: 1.1}]
+        Review the documentation for your compiler and determine what file naming convention it uses.
+        Compile and run the \texttt{main} program from page 2.
     \end{tcolorbox}
 
-    ... rest of the document ...
+    \noindent \texttt{C++} source files conventionally use one of the suffixes \texttt{.C}, \texttt{.cc}, \texttt{.cpp}, \texttt{.CPP}, \texttt{.c++}, \texttt{.cp}, or \texttt{.cxx}; \texttt{C++} header files often use \texttt{.hh}, \texttt{.hpp}, \texttt{.H}, or (for shared template code) \texttt{.tcc}; and preprocessed \texttt{C++} files use the suffix \texttt{.ii}.
+    GCC recognizes files with these names and compiles them as \texttt{C++} programs \dots \cite{gcc-manpage}.
+
+    \noindent The following shell-script snippet, run from the \texttt{src\textbackslash main\textbackslash cpp\textbackslash ch1} directory, will compile and run the requisite source-file.
+    \begin{verbatim}
+        $> g++ e1.1.cpp -o e1.1 -std=c++0x
+        $> ./e1.1
+        $> echo "Exit code: ${?}"
+        Exit code: 0
+    \end{verbatim}
+
+    \noindent\textbf{Note:} one may notice that the output file-name doesn't include the file-extension (i.e., the above snippet will work on both Windows PC and POSIX system).
+    The \texttt{.exe} file-extension is required when one wants to launch the compiled application from Windows GUI (usually through a double click); executing from the terminal, by calling \texttt{./e1.1}, usually works even without the \texttt{.exe} file-extension.
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.2}]
+        Change the program to return $-1$.
+        A return value of $-1$ is often treated as an indicator that the program failed.
+        Recompile and rerun your program to see how your system treats a failure indicator from main.
+    \end{tcolorbox}
+
+    \noindent The following shell-script snippet, run from the \texttt{src\textbackslash main\textbackslash cpp\textbackslash ch1} directory, will compile and run the requisite source-file.
+    \begin{verbatim}
+        $> g++ e1.2.cpp -o e1.2 -std=c++0x
+        $> ./e1.1
+        $> echo "Exit code: ${?}"
+        Exit code: 127
+    \end{verbatim}
+
+    \noindent\textbf{Note:} The exit code of \texttt{127}
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.2}]
+        Change the program to return $-1$.
+        A return value of $-1$ is often treated as an indicator that the program failed.
+        Recompile and rerun your program to see how your system treats a failure indicator from main.
+    \end{tcolorbox}
+
+    \pagebreak
+    \printbibliography
 
 \end{document}
