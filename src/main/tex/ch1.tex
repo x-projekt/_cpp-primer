@@ -400,7 +400,186 @@
     \end{tcolorbox}
     \noindent\textbf{Source-file(s):} \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.15.cpp}
 
+    \noindent\textbf{Note:} uncomment a single erroneous line (in the above source-file) before compiling; to see the compilation error corresponding to that line.
 
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.16}]
+        Write your own version of a program that prints the sum of a set of integers read from \texttt{cin}.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):} \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.16.cpp}
+
+    \noindent The following shell-script snippet will compile and run the requisite source-file(s).
+    \begin{verbatim}
+        $> g++ ./e1.16.cpp -o e1.16 -std=c++0x
+        $> ./e1.16
+        1
+        2
+        3
+        4
+        Sum: 10
+    \end{verbatim}
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.17}]
+        What happens in the program presented in this section if the input values are all equal?
+        What if there are no duplicated values?
+    \end{tcolorbox}
+    \noindent It doesn't matter if all the inputs are equal or different.
+    If all inputs are equal, the program counts the number of times the input has occurred.
+    Whereas, if all the inputs are different, the program outputs a count of $1$ for each input.
+
+    \noindent\textbf{Note:} See the solution for \textit{Exercise-1.18} for proof of the above solution.
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.18}]
+        Compile and run the program from this section giving it only equal values as input.
+        Run it again giving it values in which no number is repeated.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):} \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.18.cpp}
+
+    \noindent The following shell-script snippet will compile and run the requisite source-file(s).
+    \begin{verbatim}
+        $> g++ ./e1.18.cpp -o e1.18 -std=c++0x
+        $> ./e1.18
+        1
+        1
+        1
+        ^D
+        1 occurs 3 times
+        $> ./e1.18
+        1
+        2
+        1 occurs 1 times
+        3
+        2 occurs 1 times
+        ^D
+        3 occurs 1 times
+    \end{verbatim}
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.19}]
+        Revise the program you wrote for the exercises in \texttt{1.4.1} (p.~13) that printed a range of numbers so that it handles input in which the first number is smaller than second.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.11.cpp}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.13-1.11.cpp}
+
+    \noindent\textbf{Note:} See the solution(s) for \textit{Exercise-1.11} and \textit{Exercise-1.13}
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.20}]
+        \texttt{http://www.informit.com/title/032174113} contains a copy of \texttt{Sales\_item.h} in the Chapter 1 code directory.
+        Copy that file to your working directory.
+        Use it to write a program that reads a set of books sales transactions, writing each transaction to the standard output.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.20.cpp}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash Sales\_item.h}
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.21}]
+        Write a program that reads two \texttt{Sales\_item} objects that hve the same ISBN and produces their sum.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.21.cpp}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash Sales\_item.h}
+
+    \noindent The following shell-script snippet will compile and run the requisite source-file(s).
+    \begin{verbatim}
+        $> g++ ./e1.21.cpp -o e1.21 -std=c++0x
+        $> ./e1.21
+        Enter first item: 0-201-78345-X 3 26.54
+        Enter second item: 0-201-78345-X 13 35.06
+        Items sum: 0-201-78345-X 16 535.4 33.4625
+        $> ./e1.21
+        Enter first item: 0-201-78345-X 3 26.54
+        Enter second item: 0-201-78345-Y 12 78.54
+        Invalid Input: items have different ISBN
+    \end{verbatim}
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.22}]
+        Write a program that reads several transactions for the same ISBN .
+        Write the sum of all the transactions that were used.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.22.cpp}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash Sales\_item.h}
+
+    \noindent The following shell-script snippet will compile and run the requisite source-file(s).
+    \begin{verbatim}
+        $> g++ ./e1.22.cpp -o e1.22 -std=c++0x
+        $> ./e1.22
+        Enter item: 0-201-78345-X 3 26.54
+        Enter item: 0-201-78345-X 9 32.08
+        Enter item: 0-201-78345-Y 10 322.00
+        Expected same ISBN [0-201-78345-X], but got [0-201-78345-Y]; Discarding last transaction.
+        Discarded transaction: 0-201-78345-Y 10 3220 322
+        Enter item: 0-201-78345-X 15 30.39
+        Enter item: ^D
+        ^D
+        Sum (until now): 0-201-78345-X 27 824.19 30.5256
+    \end{verbatim}
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.23}]
+        Write a program that reads several transactions and counts how many transactions occurs for each ISBN.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.23.cpp}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash Sales\_item.h}
+
+    \noindent The following shell-script snippet will compile and run the requisite source-file(s).
+    \begin{verbatim}
+        $> g++ ./e1.23.cpp -o e1.23 -std=c++0x
+        $> ./e1.23
+        Enter item: 0-201-78345-X 3 26.54
+        Enter item: 0-201-78345-X 2 25.94
+        Enter item: 0-201-78345-X 5 29.62
+        Enter item: 0-201-78345-Y 3 66.54
+        ISBN [0-201-78345-X] occurs #3 times
+        Enter item: 0-201-78345-Y 9 69.00
+        Enter item: ^D
+        ^D
+        ISBN [0-201-78345-Y] occurs #2 times
+    \end{verbatim}
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.24}]
+        Test the previous program by giving multiple transactions representing multiple ISBNs.
+        The records for each ISBN should be grouped together.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.23.cpp}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash Sales\_item.h}
+
+    \noindent The program written for \textit{Exercise-1.23} only groups (and thereby counts) transactions occurring consecutively.
+    For a fully functional program, one would require a data-structure that can hold key-value pairs (such as hash-map or dictionary).
+
+    \noindent\textbf{Note:} see the solution for \textit{Exercise-1.23} for instructions about running the source-file(s).
+
+    \bigskip
+    \begin{tcolorbox}[title={Exercise: 1.25}]
+        Using the \texttt{Sales\_item.h} header from the Web site, compile and execute the bookstore program presented in this section.
+    \end{tcolorbox}
+    \noindent\textbf{Source-file(s):}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash e1.25.cpp}
+    \\ \texttt{\textbackslash src\textbackslash main\textbackslash cpp\textbackslash Sales\_item.h}
+
+    \noindent The following shell-script snippet will compile and run the requisite source-file(s).
+    \begin{verbatim}
+        $> g++ e1.25.cpp -o e1.25 -std=c++0x
+        $> ./e1.25
+        Enter item: 0-201-78345-X 3 26.54
+        Enter item: 0-201-78345-X 2 25.94
+        Enter item: 0-201-78345-X 5 29.62
+        Enter item: 0-201-78345-Y 3 66.54
+        Sum: 0-201-78345-X 10 279.6 27.96
+        Enter item: 0-201-78345-Y 9 69.00
+        Enter item: ^D
+        ^D
+        Sum: 0-201-78345-Y 12 820.62 68.385
+    \end{verbatim}
 
     \pagebreak
     \printbibliography
